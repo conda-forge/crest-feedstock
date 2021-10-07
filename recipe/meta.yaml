@@ -10,7 +10,7 @@ source:
   sha256: 11ae0ef5b21fb08fe41c5d536329bccefb1292d76379317e97978012dde88106
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   script:
     - export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs}
@@ -30,6 +30,7 @@ requirements:
     - mkl-include
   run:
     - mkl
+    - xtb
 
 test:
   commands:
