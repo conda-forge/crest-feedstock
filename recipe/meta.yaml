@@ -12,6 +12,10 @@ source:
 build:
   number: 1
   skip: true  # [win]
+  script:
+    - export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs}
+    - cmake -B build_dir -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${PREFIX}
+    - make -C build_dir all install
 
 requirements:
   build:
