@@ -33,8 +33,6 @@ requirements:
     - libblas
     - liblapack
   run:
-    - libblas
-    - liblapack
     - xtb
 
 test:
