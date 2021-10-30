@@ -8,28 +8,31 @@ package:
 source:
   url: https://github.com/grimme-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 11ae0ef5b21fb08fe41c5d536329bccefb1292d76379317e97978012dde88106
+  patches:
+    - cmake-mkl.patch
+    - nomkl.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   script:
-    - export LDFLAGS=${LDFLAGS/-Wl,-dead_strip_dylibs}
-    - cmake -B build_dir -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${PREFIX}
-    - make -C build_dir all install
+    - set -ex
+    - cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -B build_dir -GNinja
+    - cmake --build build_dir
+    - cmake --install build_dir
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - cmake
-    - make
+    - ninja
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
   host:
-    - mkl
-    - mkl-include
+    - libblas
+    - liblapack
   run:
-    - mkl
     - xtb
 
 test:
@@ -55,4 +58,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - awvwgk
     - jan-janssen
