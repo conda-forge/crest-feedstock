@@ -13,13 +13,15 @@ source:
     - nomkl.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   script:
     - set -ex
     - cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -B build_dir -GNinja
     - cmake --build build_dir
     - cmake --install build_dir
+    - mkdir -p $PREFIX/share/man/man1
+    - asciidoctor --attribute=release-version={{ version }} --backend=manpage --out-file=$PREFIX/share/man/man1/crest.1 docs/man/crest.adoc
 
 requirements:
   build:
@@ -29,6 +31,7 @@ requirements:
     - ninja
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
+    - asciidoctor
   host:
     - libblas
     - liblapack
