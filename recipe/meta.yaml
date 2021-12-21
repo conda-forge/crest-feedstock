@@ -1,5 +1,5 @@
 {% set name = "crest" %}
-{% set version = "2.11.1" %}
+{% set version = "2.11.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://github.com/grimme-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 11ae0ef5b21fb08fe41c5d536329bccefb1292d76379317e97978012dde88106
-  patches:
-    - cmake-mkl.patch
-    - nomkl.patch
+  sha256: f17da872064eb64502ac24c19e431467940d98dcb1bd391f7267f412a0a79dab
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win]
   script:
     - set -ex
