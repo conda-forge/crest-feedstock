@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/grimme-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: f17da872064eb64502ac24c19e431467940d98dcb1bd391f7267f412a0a79dab
+  patches:
+    - gcc.patch
 
 build:
   number: 0
