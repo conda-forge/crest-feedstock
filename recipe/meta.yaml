@@ -1,5 +1,5 @@
 {% set name = "crest" %}
-{% set version = "2.11.2" %}
+{% set version = "2.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,14 @@ package:
 
 source:
   url: https://github.com/grimme-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f17da872064eb64502ac24c19e431467940d98dcb1bd391f7267f412a0a79dab
-  patches:
-    - gcc.patch
+  sha256: 390f0ac0aedafbd6bb75974fcffefe7e0232ad6c4ea0ab4f1a77e656a3ce263d
 
 build:
   number: 0
   skip: true  # [win]
   script:
     - set -ex
+    - export FFLAGS="${FFLAGS} -ffree-line-length-none"
     - cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -B build_dir -GNinja
     - cmake --build build_dir
     - cmake --install build_dir
