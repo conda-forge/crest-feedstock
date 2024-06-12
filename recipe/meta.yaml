@@ -26,7 +26,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - {{ stdlib("c") }}
     - cmake
     - ninja
     - libgomp  # [linux]
