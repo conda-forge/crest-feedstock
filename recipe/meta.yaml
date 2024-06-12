@@ -31,7 +31,6 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - asciidoctor
-    - tblite
   host:
     - libblas
     - liblapack
