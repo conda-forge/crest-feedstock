@@ -24,6 +24,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - cmake
@@ -34,8 +35,8 @@ requirements:
   host:
     - libblas
     - liblapack
-  run:
     - tblite
+  run:
 
 test:
   commands:
