@@ -1,47 +1,54 @@
 {% set name = "crest" %}
-{% set version = "2.12" %}
+{% set version = "3.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/grimme-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 390f0ac0aedafbd6bb75974fcffefe7e0232ad6c4ea0ab4f1a77e656a3ce263d
+  git_url: https://github.com/crest-lab/{{ name }}.git
+  git_tag: v{{ version }}
+  git_depth: 1
+  git_submodules: true
 
 build:
   number: 0
   skip: true  # [win]
   script:
     - set -ex
-    - export FFLAGS="${FFLAGS} -ffree-line-length-none"
-    - cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -B build_dir -GNinja
+    - export FFLAGS="${FFLAGS} -ffree-line-length-none -DWITH_OPENBLAS"
+    - |
+      cmake ${CMAKE_ARGS} \
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DWITH_TESTS=OFF \
+            -B build_dir \
+            -GNinja
     - cmake --build build_dir
     - cmake --install build_dir
-    - mkdir -p $PREFIX/share/man/man1
-    - asciidoctor --attribute=release-version={{ version }} --backend=manpage --out-file=$PREFIX/share/man/man1/crest.1 docs/man/crest.adoc
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - cmake
     - ninja
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
-    - asciidoctor
+    - libopenblas
   host:
     - libblas
     - liblapack
+    - libopenblas
   run:
     - xtb
 
 test:
   commands:
-    - crest --help
+    - crest --version
 
 about:
-  home: https://xtb-docs.readthedocs.io/en/latest/crest.html
+  home: https://crest-lab.github.io/crest-docs/
   license: LGPL-3.0-or-later
   license_family: GPL
   license_file:
@@ -49,13 +56,16 @@ about:
     - COPYING.LESSER
   summary: 'Conformer-Rotamer Ensemble Sampling Tool based on the xtb Semiempirical Extended Tight-Binding Program Package'
   description: |
-    This is the offical repository of the crest program developed by the 
-    Grimme group in Bonn. crest is an extension to the xtb program. It 
-    functions as an IO based OMP scheduler (i.e., calculations are
-    performed by the xtb program) and tool for the creation and
-    analysation of structure ensembles. 
-  doc_url: https://xtb-docs.readthedocs.io/en/latest/crest.html
-  dev_url: https://github.com/grimme-lab/crest
+    This is the official repository of the CREST. The program was
+    originally developed by the Grimme group at the University of Bonn
+    as is an extension to the xtb program to drive semiempirical quantum
+    mechanical calculations for the exploration of chemical space.
+    Since then several functionalities have been added to the code. 
+    In its current state, the program provides a variety of sampling 
+    procedures, for example for improved thermochemistry, or explicit solvation 
+    and analysis of structure ensembles. 
+  doc_url: https://crest-lab.github.io/crest-docs/
+  dev_url: https://github.com/crest-lab/crest
 
 extra:
   recipe-maintainers:
