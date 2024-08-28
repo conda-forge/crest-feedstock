@@ -94,8 +94,27 @@ about:
   license: LGPL-3.0-or-later
   license_family: GPL
   license_file:
-    - COPYING
+    - COPYING  # LGPL-3.0-or-later
     - COPYING.LESSER
+    - subprojects/toml-f/LICENSE-Apache  # Apache-2.0 or MIT
+    - subprojects/toml-f/LICENSE-MIT
+    - subprojects/gfnff/COPYING  # LGPL-3.0-or-later
+    - subprojects/gfnff/COPYING.LESSER
+    - subprojects/gfn0/COPYING  # LGPL-3.0-or-later
+    - subprojects/gfn0/COPYING.LESSER
+    - subprojects/lwoniom/COPYING  # LGPL-3.0-or-later
+    - subprojects/lwoniom/COPYING.LESSER
+    - subprojects/test-drive/LICENSE-Apache  # Apache-2.0 or MIT
+    - subprojects/test-drive/LICENSE-MIT
+    - subprojects/tblite/COPYING  # LGPL-3.0-or-later
+    - subprojects/tblite/COPYING.LESSER
+    - subprojects/tblite/subprojects/mctc-lib/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/dftd4/COPYING  # LGPL-3.0-or-later
+    - subprojects/tblite/subprojects/dftd4/COPYING.LESSER
+    - subprojects/tblite/subprojects/dftd4/subprojects/mstore/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/dftd4/subprojects/multicharge/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/s-dftd3/COPYING  # LGPL-3.0-or-later
+    - subprojects/tblite/subprojects/s-dftd3/COPYING.LESSER
   summary: 'Conformer-Rotamer Ensemble Sampling Tool based on the xtb Semiempirical Extended Tight-Binding Program Package'
   description: |
     This is the official repository of the CREST. The program was
