@@ -27,7 +27,7 @@ source:
 
   - folder: subprojects/test-drive
     sha256: 46aa66cb3761eb7bb46563325c2a5b5f561f654cd9d8151487cd19be1f813370
-    url: https://github.com/fortran-lang/test-drive/archive/482fc754e5573466962b9c887126829eb78f9f1a.zip
+    url: https://github.com/fortran-lang/test-drive/archive/482fc754e5573466962b9c887126829eb78f9f1a.tar.gz
 
   - folder: subprojects/tblite
     sha256: c65623e933581a05d781b91a50d92586f54cbb094f90646222f143952694f996
