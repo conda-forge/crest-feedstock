@@ -1,0 +1,52 @@
+From a07391922bbbc87053a2cfbb8373c4a788d56225 Mon Sep 17 00:00:00 2001
+From: Sebastian Ehlert <sehlert@microsoft.com>
+Date: Wed, 28 Aug 2024 13:12:24 +0000
+Subject: [PATCH] Allow overriding of precision check in CMake
+
+---
+ config/CMakeLists.txt | 32 ++++++++++++++++++--------------
+ 1 file changed, 18 insertions(+), 14 deletions(-)
+
+diff --git a/config/CMakeLists.txt b/config/CMakeLists.txt
+index e4bc2df..7e4a545 100644
+--- a/config/CMakeLists.txt
++++ b/config/CMakeLists.txt
+@@ -34,20 +34,24 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+ endif()
+ 
+ include(CheckFortranSourceCompiles)
+-check_fortran_source_compiles(
+-  "integer, parameter :: qp = selected_real_kind(33); complex(qp) :: x; end"
+-  WITH_QP
+-)
+-set(WITH_QP ${WITH_QP} PARENT_SCOPE)
+-check_fortran_source_compiles(
+-  "
+-  integer, parameter :: xdp = merge(-1, selected_real_kind(18), selected_real_kind(18) == selected_real_kind(33))
+-  complex(xdp) :: x
+-  end
+-  "
+-  WITH_XDP
+-)
+-set(WITH_XDP ${WITH_XDP} PARENT_SCOPE)
++if(NOT DEFINED WITH_QP)
++  check_fortran_source_compiles(
++    "integer, parameter :: qp = selected_real_kind(33); complex(qp) :: x; end"
++    WITH_QP
++  )
++  set(WITH_QP ${WITH_QP} PARENT_SCOPE)
++endif()
++if(NOT DEFINED WITH_XDP)
++  check_fortran_source_compiles(
++    "
++    integer, parameter :: xdp = merge(-1, selected_real_kind(18), selected_real_kind(18) == selected_real_kind(33))
++    complex(xdp) :: x
++    end
++    "
++    WITH_XDP
++  )
++  set(WITH_XDP ${WITH_XDP} PARENT_SCOPE)
++endif()
+ 
+ include(CMakePackageConfigHelpers)
+ configure_package_config_file(
