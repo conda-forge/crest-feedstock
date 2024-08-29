@@ -1,23 +1,26 @@
-About crest
-===========
-
-Home: https://xtb-docs.readthedocs.io/en/latest/crest.html
-
-Package license: LGPL-3.0-or-later
+About crest-feedstock
+=====================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/crest-feedstock/blob/main/LICENSE.txt)
 
+Home: https://crest-lab.github.io/crest-docs/
+
+Package license: LGPL-3.0-or-later
+
 Summary: Conformer-Rotamer Ensemble Sampling Tool based on the xtb Semiempirical Extended Tight-Binding Program Package
 
-Development: https://github.com/grimme-lab/crest
+Development: https://github.com/crest-lab/crest
 
-Documentation: https://xtb-docs.readthedocs.io/en/latest/crest.html
+Documentation: https://crest-lab.github.io/crest-docs/
 
-This is the offical repository of the crest program developed by the
-Grimme group in Bonn. crest is an extension to the xtb program. It
-functions as an IO based OMP scheduler (i.e., calculations are
-performed by the xtb program) and tool for the creation and
-analysation of structure ensembles.
+This is the official repository of the CREST. The program was
+originally developed by the Grimme group at the University of Bonn
+as is an extension to the xtb program to drive semiempirical quantum
+mechanical calculations for the exploration of chemical space.
+Since then several functionalities have been added to the code.
+In its current state, the program provides a variety of sampling
+procedures, for example for improved thermochemistry, or explicit solvation
+and analysis of structure ensembles.
 
 
 Current build status
@@ -48,35 +51,35 @@ Current build status
               <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=osx&configuration=osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13973&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/crest-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -160,7 +163,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
