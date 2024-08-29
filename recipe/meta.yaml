@@ -26,10 +26,8 @@ source:
     url: https://github.com/crest-lab/lwoniom/archive/v0.0.1.tar.gz
 
   - folder: subprojects/test-drive
-    sha256: f9c037a3c1727e98801c2375e6f2efde9881ac1f54b04be3bc928e094f5787a5
-    url: https://github.com/fortran-lang/test-drive/archive/v0.4.0.tar.gz
-    patches:
-      - test-drive-37.patch
+    sha256: 46aa66cb3761eb7bb46563325c2a5b5f561f654cd9d8151487cd19be1f813370
+    url: https://github.com/fortran-lang/test-drive/archive/482fc754e5573466962b9c887126829eb78f9f1a.zip
 
   - folder: subprojects/tblite
     sha256: c65623e933581a05d781b91a50d92586f54cbb094f90646222f143952694f996
