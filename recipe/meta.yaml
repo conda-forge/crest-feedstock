@@ -33,6 +33,25 @@ source:
     sha256: c65623e933581a05d781b91a50d92586f54cbb094f90646222f143952694f996
     url: https://github.com/pprcht/tblite/archive/v0.3.0-fork.tar.gz
 
+  - folder: subprojects/tblite/subprojects/mctc-lib
+    sha256: 03dc8ccba37413da70e55a07cef8e8de53bce33f5bb52c1f8db5fec326abe083
+    url: https://github.com/grimme-lab/mctc-lib/archive/v0.3.1.tar.gz
+
+  - folder: subprojects/tblite/subprojects/dftd4
+    sha256: 0e3e8d5f9e9e5414b9979967c074c953706053832e551d922c27599e7324bace
+    url: https://github.com/dftd4/dftd4/archive/v3.6.0.tar.gz
+
+  - folder: subprojects/tblite/subprojects/dftd4/subprojects/mstore
+    sha256: 56b3d778629eb74b8a515cd53c727d04609f858a07f8d3555fd5fd392a206dcc
+    url: https://github.com/grimme-lab/mstore/archive/v0.3.0.tar.gz
+
+  - folder: subprojects/tblite/subprojects/dftd4/subprojects/multicharge
+    sha256: 953e2ace2f4035b1fa8ecf680f90b5ce6ad5caae17c8d8ccbc2578b92b69d3e7
+    url: https://github.com/grimme-lab/multicharge/archive/v0.2.0.tar.gz
+
+  - folder: subprojects/tblite/subprojects/s-dftd3
+    sha256: 4bef311f8e5a2c32141eddeea65615c3c8480f917cd884488ede059fb0962a50
+    url: https://github.com/awvwgk/simple-dftd3/archive/v0.6.0.tar.gz
 
 build:
   number: 0
@@ -60,11 +79,8 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
   host:
-    - dftd4
     - libblas
     - liblapack
-    - mctc-lib
-    - simple-dftd3
   run:
     - xtb
 
@@ -91,6 +107,13 @@ about:
     - subprojects/test-drive/LICENSE-MIT
     - subprojects/tblite/COPYING  # LGPL-3.0-or-later
     - subprojects/tblite/COPYING.LESSER
+    - subprojects/tblite/subprojects/mctc-lib/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/dftd4/COPYING  # LGPL-3.0-or-later
+    - subprojects/tblite/subprojects/dftd4/COPYING.LESSER
+    - subprojects/tblite/subprojects/dftd4/subprojects/mstore/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/dftd4/subprojects/multicharge/LICENSE  # Apache-2.0
+    - subprojects/tblite/subprojects/s-dftd3/COPYING  # LGPL-3.0-or-later
+    - subprojects/tblite/subprojects/s-dftd3/COPYING.LESSER
   summary: 'Conformer-Rotamer Ensemble Sampling Tool based on the xtb Semiempirical Extended Tight-Binding Program Package'
   description: |
     This is the official repository of the CREST. The program was
