@@ -206,5 +206,6 @@ Feedstock Maintainers
 
 * [@awvwgk](https://github.com/awvwgk/)
 * [@jan-janssen](https://github.com/jan-janssen/)
+* [@maxscheurer](https://github.com/maxscheurer/)
 * [@pprcht](https://github.com/pprcht/)
 
