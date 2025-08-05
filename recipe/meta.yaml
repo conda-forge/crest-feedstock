@@ -8,6 +8,8 @@ package:
 source:
   - url: https://github.com/crest-lab/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: f5d00d41c18a6f999ec8c890aa56d4b7ac8b1bf52a8c6d48c1d151c0126f7793
+    patches:
+      - 0001-double-allocation.patch
 
   - folder: subprojects/toml-f
     sha256: e66d0e355a8a2e65fd5fc7cd4f00078dfbdbf1b3cc47b60f028c19467df4c337
@@ -54,7 +56,7 @@ source:
     url: https://github.com/awvwgk/simple-dftd3/archive/v0.6.0.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script:
     - set -ex
