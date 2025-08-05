@@ -17,10 +17,11 @@ index 270682a..7aa39d9 100644
        if (io == 0) then
          call blk%addkv(kvdum)
 -        if(.not.allocated(blk%kv_list(blk%nkv)%value_rawa))then
--           allocate(blk%kv_list(blk%nkv)%value_rawa, source=kvdum%value_rawa)
+-           allocate(blk%kv_list(blk%nkv)%value_rawa, source=kvdum%value_rawa)  
 -        endif
        end if
      end do
-
---
+ 
+-- 
 2.39.5 (Apple Git-154)
+
